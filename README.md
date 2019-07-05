@@ -2,6 +2,13 @@
 [![NPM Downloads][downloads-image]][downloads-url]
 [![Codacy Badge][codacy-image]][codacy-url]
 
+## TL;DR
+
+```
+# Bump version number in package.json
+npm publish --access public
+```
+
 # Cordova CanvasCamera plugin
 
 ## Plugin's Purpose
@@ -25,7 +32,7 @@ The plugin can either be installed into the local development environment or clo
 Through the [Command-line Interface][CLI]:
 
 ```bash
-cordova plugin add https://github.com/VirtuoWorks/CanvasCameraPlugin.git && cordova prepare
+cordova plugin add https://github.com/capitalhitelhaz/CanvasCameraPlugin.git && cordova prepare
 ```
 
 ### Removing the Plugin from your project
