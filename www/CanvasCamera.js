@@ -79,12 +79,12 @@ CanvasCamera.prototype.createFrame = (function(image, element, renderer) {
         this.dy = 0;
         this.dWidth = 0;
         this.dHeight = 0;
-    
+
         this.image = image || null;
         this.element = element || null;
         this.renderer = renderer || null;
     };
-    
+
     CanvasCamera.Frame.prototype.initialize = function() {
         if (this.image && this.element) {
             this.renderer.canvasCamera.dispatch('beforeframeinitialization', this);
@@ -104,23 +104,23 @@ CanvasCamera.prototype.createFrame = (function(image, element, renderer) {
             this.dWidth = parseFloat(this.element.width);
             // The height to draw the image in the destination canvas. This allows scaling of the drawn image. If not specified, the image is not scaled in height when drawn.
             this.dHeight = parseFloat(this.element.height);
-    
+
             var hRatio = this.dWidth / this.sWidth;
             var vRatio = this.dHeight / this.sHeight;
             this.ratio = Math.max(hRatio, vRatio);
-    
+
             this.dx = (this.dWidth - this.sWidth * this.ratio) / 2;
             this.dy = (this.dHeight - this.sHeight * this.ratio) / 2;
-    
+
             this.dWidth = this.sWidth * this.ratio;
             this.dHeight = this.sHeight * this.ratio;
-    
+
             this.renderer.canvasCamera.dispatch('afterframeinitialization', this);
         }
-    
+
         return this;
     };
-    
+
     CanvasCamera.Frame.prototype.recycle = function() {
         for (var property in this) {
             if (this.hasOwnProperty(property)) {
@@ -164,6 +164,7 @@ CanvasCamera.prototype.createRenderer = (function (element, canvasCamera) {
             this.context = this.element.getContext('2d');
 
             this.image = new Image();
+            this.image.crossOrigin = 'Anonymous';
 
             this.image.addEventListener('load', function(event) {
 
